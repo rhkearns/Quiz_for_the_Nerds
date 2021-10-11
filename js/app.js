@@ -3,7 +3,10 @@
 // sound for clicks
 // sound for passing/failing quiz
 // objects for each quiz
-// object for each question with answer choices
+// object for each question with answer choices -- this might need to be a separate JS file with all of the questions; not 100% sure how to store all of them
+
+//Theme: Nerdy Trivia
+// Categories: Harry Potter, Star Wars, Lord of the Rings, A Song of Ice and Fire, Dungeons and Dragons, MCU, maybe others
 
 /*---------------------- Variables --------------------*/
 
