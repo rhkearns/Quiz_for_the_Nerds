@@ -12,7 +12,8 @@ import { hpQuestions } from "../data/hp.js";
 
 // Create variables for number of questions, number answered, number answered correctly
 
-let category, score
+let category, score, question, correctAns, questionArray
+let i = 0
 
 /*----------------- Cached Element References ---------*/
 
@@ -21,8 +22,7 @@ let category, score
 const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
-
-console.log(messageEl);
+const body = document.querySelector("body")
 
 /*---------------- Event Listeners -------------------*/
 
@@ -34,7 +34,9 @@ catButtons.addEventListener('click', chooseCategory)
 // toggle: light and dark mode
 // replay quiz
 
-
+function test(evt) {
+   console.log(evt.target);
+}
 /*------------------- Functions ---------------------*/
 
 // init to landing page
@@ -53,17 +55,46 @@ function init (){
 // extra: random quiz
 // extra: difficulties
 
+
 function chooseCategory(evt){
    category = evt.target.id
-   renderQuiz(category)
+   renderQuiz()
+   pullQuestions()
 }
 
-function renderQuiz () {
 
+
+function renderQuiz () {
+   catButtons.innerHTML = ""
+   body.innerHTML =
+      `<h1> Are you ready to begin?</h1>
+      <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
+   const startBtn = document.querySelector("#start-button")
+   startBtn.addEventListener('click', showQuestion)
+}
+
+
+function showQuestion() {
+   body.innerHTML = `
+   <div class="card" style="width: 18rem;">
+   <div class="card-header">
+      ${questionArray[i].question}
+   </div>
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">${questionArray[i].multChoice[0]}</li>
+      <li class="list-group-item">${questionArray[i].multChoice[1]}</li>
+      <li class="list-group-item">${questionArray[i].multChoice[2]}</li>
+      <li class="list-group-item">${questionArray[i].multChoice[3]}</li>
+      <li class="list-group-item">${questionArray[i].multChoice[4]}</li>
+      </ul>
+   </div>`;
+   const multiChoiceItem = document.querySelector(".list-group")
+   multiChoiceItem.addEventListener('click', renderGuess)
 }
 
 function renderGuess(evt) {
-
+multiChoiceItem.classList.add("guess")
+console.log(multiChoiceItem.classList);
 }
 
 function renderResult () {
@@ -74,6 +105,32 @@ function nextQuestion () {
 
 }
 
-function checkAnswer(ans) {
+function checkAnswer(evt) {
+   let ans = evt.target.innerText;
+   if (ans = questionArray[i].correctAns) {
+      ;
+   }
+}
 
+function backToHome(){
+
+}
+
+function pullQuestions () {
+   switch (category) {
+      case "harry-potter":
+         questionArray = hpQuestions;
+         break;
+      case "lord-of-the-rings":
+         questionArray = lotrQuestions;
+         break;
+      case "star-wars":
+         quesitonArray = swQuestions;
+         break;
+      case "dungeons-dragons":
+         questionArray = ddQuestions;
+      break;
+      default:
+         console.log("try again");
+   }
 }
