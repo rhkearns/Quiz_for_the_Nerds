@@ -5,12 +5,14 @@
 // objects for each quiz
 // object for each question with answer choices 
 
+import { hpQuestions } from "../data/hp.js";
 
 
 /*---------------------- Variables --------------------*/
 
 // Create variables for number of questions, number answered, number answered correctly
 
+let category, score
 
 /*----------------- Cached Element References ---------*/
 
@@ -39,7 +41,8 @@ catButtons.addEventListener('click', chooseCategory)
 init ()
 
 function init (){
-
+   titleEl.innerText = "Nerd Quiz"
+   messageEl.innerText = "Test Your Nerd Knowledge"
 }
 // render to quiz page
 // render to result page
@@ -51,10 +54,15 @@ function init (){
 // extra: difficulties
 
 function chooseCategory(evt){
+   category = evt.target.id
+   renderQuiz(category)
+}
+
+function renderQuiz () {
 
 }
 
-function render () {
+function renderGuess(evt) {
 
 }
 
