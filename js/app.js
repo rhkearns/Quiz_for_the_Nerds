@@ -3,10 +3,9 @@
 // sound for clicks
 // sound for passing/failing quiz
 // objects for each quiz
-// object for each question with answer choices -- this might need to be a separate JS file with all of the questions; not 100% sure how to store all of them
+// object for each question with answer choices 
 
-//Theme: Nerdy Trivia
-// Categories: Harry Potter, Star Wars, Lord of the Rings, A Song of Ice and Fire, Dungeons and Dragons, MCU, maybe others
+
 
 /*---------------------- Variables --------------------*/
 
@@ -17,12 +16,17 @@
 
 // Cached elements: question message; muliple choices 1-5; categories?; 
 // categories
-// Not sure how to create two separate windows; might make the quiz on a pop-out over the landing page 
+const titleEl = document.querySelector("#title")
+const messageEl = document.querySelector("#message")
+const catButtons = document.querySelector("#category-cards")
 
+console.log(messageEl);
 
 /*---------------- Event Listeners -------------------*/
 
 // clicks on categories and answers
+catButtons.addEventListener('click', chooseCategory)
+
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
 // toggle: light and dark mode
@@ -32,7 +36,12 @@
 /*------------------- Functions ---------------------*/
 
 // init to landing page
-// render to quiz page/popout
+init ()
+
+function init (){
+
+}
+// render to quiz page
 // render to result page
 // check answer
 // change between questions
@@ -40,3 +49,23 @@
 // extra: shuffle questions
 // extra: random quiz
 // extra: difficulties
+
+function chooseCategory(evt){
+
+}
+
+function render () {
+
+}
+
+function renderResult () {
+
+}
+
+function nextQuestion () {
+
+}
+
+function checkAnswer(ans) {
+
+}
