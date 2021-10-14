@@ -81,20 +81,22 @@ function showQuestion() {
       ${questionArray[i].question}
    </div>
       <ul class="list-group list-group-flush">
-      <li class="list-group-item">${questionArray[i].multChoice[0]}</li>
-      <li class="list-group-item">${questionArray[i].multChoice[1]}</li>
-      <li class="list-group-item">${questionArray[i].multChoice[2]}</li>
-      <li class="list-group-item">${questionArray[i].multChoice[3]}</li>
-      <li class="list-group-item">${questionArray[i].multChoice[4]}</li>
+      <li class="list-group-item" id="a">${questionArray[i].multChoice[0]}</li>
+      <li class="list-group-item" id="b">${questionArray[i].multChoice[1]}</li>
+      <li class="list-group-item" id="c">${questionArray[i].multChoice[2]}</li>
+      <li class="list-group-item" id="d">${questionArray[i].multChoice[3]}</li>
+      <li class="list-group-item" id="e">${questionArray[i].multChoice[4]}</li>
       </ul>
    </div>`;
-   const multiChoiceItem = document.querySelector(".list-group")
-   multiChoiceItem.addEventListener('click', renderGuess)
+   const multiChoiceItem = document.querySelectorAll(".list-group-item")
+   const multiChoiceBlock = document.querySelector(".list-group")
+   multiChoiceBlock.addEventListener('click', renderGuess)
 }
 
 function renderGuess(evt) {
-multiChoiceItem.classList.add("guess")
-console.log(multiChoiceItem.classList);
+   let choice = evt.target.id
+   choice.classList.add("guess")
+   console.log(choice.classList);
 }
 
 function renderResult () {
