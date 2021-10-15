@@ -104,7 +104,9 @@ function checkAnswer(evt) {
    let ans = evt.target.innerText;
    console.log("ans", ans);
    if (ans === questionArray[i].correctAns) {
-      console.log('correct');;
+      console.log('correct');
+      ans.classList.add("correct")
+      console.log(multiChoiceItem);
    } else {
       console.log("wrong");
    }
@@ -116,8 +118,6 @@ function renderResult () {
 function nextQuestion () {
 
 }
-
-
 
 function backToHome(){
 
