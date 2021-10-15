@@ -90,15 +90,25 @@ function showQuestion() {
    </div>`;
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    const multiChoiceBlock = document.querySelector(".list-group")
-   multiChoiceBlock.addEventListener('click', renderGuess)
+   multiChoiceBlock.addEventListener('click', checkAnswer)
 }
 
 function renderGuess(evt) {
-   let choice = evt.target.id
-   choice.classList.add("guess")
-   console.log(choice.classList);
+   // let choice = evt.target.id
+   // choice.classList.add("guess")
+   // console.log(choice.classList);
+   
 }
 
+function checkAnswer(evt) {
+   let ans = evt.target.innerText;
+   console.log("ans", ans);
+   if (ans === questionArray[i].correctAns) {
+      console.log('correct');;
+   } else {
+      console.log("wrong");
+   }
+}
 function renderResult () {
 
 }
@@ -107,12 +117,7 @@ function nextQuestion () {
 
 }
 
-function checkAnswer(evt) {
-   let ans = evt.target.innerText;
-   if (ans = questionArray[i].correctAns) {
-      ;
-   }
-}
+
 
 function backToHome(){
 
