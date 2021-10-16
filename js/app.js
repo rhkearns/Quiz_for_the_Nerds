@@ -23,8 +23,10 @@ let idx = 0
 const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
-const body = document.querySelector("body")
+// const body = document.querySelector("body")
 const main = document.querySelector("main")
+const backButton = document.getElementById("back-button")
+const nextButton = document.getElementById("next-button")
 // const questionContainer = document.querySelector('.question-container')
 
 /*---------------- Event Listeners -------------------*/
@@ -32,6 +34,8 @@ const main = document.querySelector("main")
 // clicks on categories and answers
 catButtons.addEventListener('click', chooseCategory)
 
+backButton.addEventListener('click', init)
+nextButton.addEventListener('click', nextQuestion)
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
 // toggle: light and dark mode
@@ -46,20 +50,22 @@ function test(evt) {
 init ()
 
 function init (){
-   titleEl.innerText = "Nerd Quiz"
-   messageEl.innerText = "Test Your Nerd Knowledge"
-   // catButtons.setAttribute('hidden', true)
    score = 0
    idx = 0
+   titleEl.innerText = "Nerd Quiz"
+   messageEl.innerText = "Test Your Nerd Knowledge"
+   if (catButtons.hasAttribute("hidden")){
+      catButtons.setAttribute('hidden', false)
+   }
 }
 
 function chooseCategory(evt){
-   console.log('innertext', evt.target.innerText);
-   console.log('Id', evt.target.id);
+   // console.log('innertext', evt.target.innerText);
+   // console.log('Id', evt.target.id);
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
-   renderQuiz()
    pullQuestions()
+   renderQuiz()
 }
 
 
@@ -69,16 +75,16 @@ function renderQuiz () {
    titleEl.innerHTML = `${category}`
    main.innerHTML =`
       <h2> Are you ready to begin?</h2>
-      <button type="button" class="btn btn-primary" id="start-button">Begin</button>
-      <button type="button" class="btn btn-primary" id="back-button">Back to Home</button>`
+      <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
+   backButton.removeAttribute('hidden')
    const startBtn = document.querySelector("#start-button")
    startBtn.addEventListener('click', showQuestion)
-   const backButton = document.querySelector('#back-button')
-   backButton.addEventListener('click', init)
+   
 }
 
 
 function showQuestion() {
+   console.log('here');
    titleEl.innerHTML = `${category}`
    main.innerHTML = `
    <div class="card" style="width: 18rem;">
@@ -92,9 +98,7 @@ function showQuestion() {
       <li class="list-group-item" id="d">${questionArray[idx].multChoice[3]}</li>
       <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
       </ul>
-   </div>
-   <button type="button" class="btn btn-primary" id="back-button">Back to Home Menu</button>
-   <button type="button" class="btn btn-primary" id="next-button" hidden>Next Question</button>`
+   </div>`
    const backButton = document.querySelector('#back-button')
    backButton.addEventListener('click', test)
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
@@ -107,7 +111,6 @@ function showQuestion() {
    multiChoiceBlock.addEventListener('click', function(evt){
       if (ans === null){
          checkAnswer(evt)
-         
       }
    })
 }
@@ -124,20 +127,24 @@ function checkAnswer(evt) {
       evt.target.classList.add("wrong")
       correctAns.classList.add('correct')
       }
-   // body.appendChild()
-   // `<button type="button" class="btn btn-primary" id="next-button">Next Question</button>`
-   // const nextButton = document.querySelector('#next-button')
-   // nextButton.addEventListener('click', nextQuestion)
+   if (idx === 9) {
+      renderResult()
+   } else {
+      nextButton.removeAttribute("hidden")
+   }
 }
 
 // totaling results
 // render to result page
 function renderResult () {
-
+messageEl.innerText = `Congratulations, you answered ${score} correct out of 10!`
 }
 
 function nextQuestion () {
-
+   nextButton.setAttribute('hidden', true)
+   idx++
+   ans = null
+   showQuestion()
 }
 
 
