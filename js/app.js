@@ -11,7 +11,7 @@ import { hpQuestions } from "../data/hp.js";
 /*---------------------- Variables --------------------*/
 
 // Create variables for number of questions, number answered, number answered correctly
-
+let ans = null
 let category, score, correctAns 
 let questionArray = []
 let idx = 0
@@ -24,7 +24,8 @@ const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
 const body = document.querySelector("body")
-
+const main = document.querySelector("main")
+// const questionContainer = document.querySelector('.question-container')
 
 /*---------------- Event Listeners -------------------*/
 
@@ -47,23 +48,16 @@ init ()
 function init (){
    titleEl.innerText = "Nerd Quiz"
    messageEl.innerText = "Test Your Nerd Knowledge"
+   // catButtons.setAttribute('hidden', true)
    score = 0
    idx = 0
-   
 }
-
-
-
-// change between questions
-// extra: shuffle questions
-// extra: random quiz
-// extra: difficulties
-
 
 function chooseCategory(evt){
    console.log('innertext', evt.target.innerText);
    console.log('Id', evt.target.id);
    category = evt.target.id;
+   catButtons.setAttribute('hidden', true)
    renderQuiz()
    pullQuestions()
 }
@@ -73,7 +67,7 @@ function chooseCategory(evt){
 function renderQuiz () {
    catButtons.innerHTML = ""
    titleEl.innerHTML = `${category}`
-   body.innerHTML =`
+   main.innerHTML =`
       <h2> Are you ready to begin?</h2>
       <button type="button" class="btn btn-primary" id="start-button">Begin</button>
       <button type="button" class="btn btn-primary" id="back-button">Back to Home</button>`
@@ -85,9 +79,8 @@ function renderQuiz () {
 
 
 function showQuestion() {
-   console.log(questionArray[idx])
    titleEl.innerHTML = `${category}`
-   body.innerHTML = `
+   main.innerHTML = `
    <div class="card" style="width: 18rem;">
    <div class="card-header">
       ${questionArray[idx].question} 
@@ -100,42 +93,41 @@ function showQuestion() {
       <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
       </ul>
    </div>
-   <button type="button" class="btn btn-primary" id="back-button">Back to Home Menu</button>`
+   <button type="button" class="btn btn-primary" id="back-button">Back to Home Menu</button>
+   <button type="button" class="btn btn-primary" id="next-button" hidden>Next Question</button>`
    const backButton = document.querySelector('#back-button')
    backButton.addEventListener('click', test)
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
-      console.log(choice);
       if (choice.innerText === questionArray[idx].correctAns) {
          correctAns = choice
-         console.log(correctAns);
       }
    })
    const multiChoiceBlock = document.querySelector(".list-group")
-   multiChoiceBlock.addEventListener('click', checkAnswer)
+   multiChoiceBlock.addEventListener('click', function(evt){
+      if (ans === null){
+         checkAnswer(evt)
+         
+      }
+   })
 }
 
 
 // check answer
-function checkAnswer(evt, multiChoiceBlock) {
-   let ans = evt.target.innerText;
-   console.log('block', multiChoiceBlock);
-   console.log("ans", ans);
+function checkAnswer(evt) {
+   ans = evt.target.innerText;
    if (ans === questionArray[idx].correctAns) {
-      console.log('correct');
       evt.target.classList.add("correct")
-      console.log(evt.target.className);
       score++
       console.log('score', score);
    } else {
-      console.log("wrong");
       evt.target.classList.add("wrong")
       correctAns.classList.add('correct')
       }
-   body.appendChild()
-   `<button type="button" class="btn btn-primary" id="next-button">Next Question</button>`
-   const nextButton = document.querySelector('#next-button')
-   nextButton.addEventListener('click', nextQuestion)
+   // body.appendChild()
+   // `<button type="button" class="btn btn-primary" id="next-button">Next Question</button>`
+   // const nextButton = document.querySelector('#next-button')
+   // nextButton.addEventListener('click', nextQuestion)
 }
 
 // totaling results
@@ -171,5 +163,10 @@ function pullQuestions () {
       default:
          console.log('try again');;
    }
+} 
+
    
-}
+   
+// extra: shuffle questions
+// extra: random quiz
+// extra: difficulties
