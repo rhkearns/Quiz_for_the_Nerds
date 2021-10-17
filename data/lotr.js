@@ -2,24 +2,26 @@
 // One object for each question
 
 const lotrQuestions = [
-
-   {
-      "question" : "What was the name of Sauron's fortress in Mordor?",
-      "correctAns" : "Barad-D&ucircr",
-      "multChoice" : ["Orthanc", "Barad-D&ucircr", "Cirith Ungol", "Dor L&oacutemon", "Angrod"]
-   },
-
-   {
-      "question" : "Who wrote the poem 'All that is gold does not glitter, Not all those who wander are lost'?",
-      "correctAns" : "Bilbo Baggins",
-      "multChoice" : ["Thorin Oakenshield", "Arwen Und&oacutemiel", "Bilbo Baggins", "Merry Brandybuck", "L&uacutethien Tin&uacuteviel"]
-   },
-
+   
    {
       "question" : "What is the name of the innkeep at The Prancing Pony?",
       "correctAns" : "Barliman Butterbur",
       "multChoice" : ["Barliman Butterbur", "Tom Bombadil", "Farmer Maggot", "Fatty Bolger", "Bill Ferny"]
    },
+   
+   {
+      "question" : "What was the name of Sauron's fortress in Mordor?",
+      "correctAns" : "Barad-Dur",
+      "multChoice" : ["Orthanc", "Barad-Dur", "Cirith Ungol", "Dor Lomon", "Angrod"]
+   },
+
+   {
+      "question" : "Who wrote the poem 'All that is gold does not glitter, Not all those who wander are lost'?",
+      "correctAns" : "Bilbo Baggins",
+      "multChoice" : ["Thorin Oakenshield", "Arwen Undomiel", "Bilbo Baggins", "Merry Brandybuck", "Luthien Tinuviel"]
+   },
+
+   
 
    {
       "question" : "What is the name of the Great River that the Fellowship rows down after leaving Lothlorien?",
@@ -54,7 +56,7 @@ const lotrQuestions = [
    {
       "question" : "At the end of Return of the King, who bore the Three Elvish Rings?",
       "correctAns" : "Elrond, Galadriel, and Gandalf",
-      "multChoice" : ["Aragorn, Arwen, and Galadriel", "Bilbo, C&iacuterdan, and Celebrimbor", "Galadriel, Celeborn, and Glorfindel", "Elrond, Galadriel, and Gandalf", "Vilya, Nenya, Narya"]
+      "multChoice" : ["Aragorn, Arwen, and Galadriel", "Bilbo, Cidan, and Celebrimbor", "Galadriel, Celeborn, and Glorfindel", "Elrond, Galadriel, and Gandalf", "Vilya, Nenya, Narya"]
    },
 
    {

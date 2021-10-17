@@ -104,8 +104,11 @@ function showQuestion() {
    </div>`
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
+      console.log('choice', choice);
+      console.log(questionArray[idx].correctAns);
       if (choice.innerText === questionArray[idx].correctAns) {
          correctAns = choice
+         console.log('correctAns', correctAns);
       }
    })
    const multiChoiceBlock = document.querySelector(".list-group")
