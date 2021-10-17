@@ -6,6 +6,7 @@
 // object for each question with answer choices 
 
 import { hpQuestions } from "../data/hp.js";
+import { lotrQuestions} from "../data/lotr.js";
 
 
 /*---------------------- Variables --------------------*/
@@ -119,12 +120,15 @@ function showQuestion() {
 // check answer
 function checkAnswer(evt) {
    ans = evt.target.innerText;
+   console.log('here 1');
    if (ans === questionArray[idx].correctAns) {
       evt.target.classList.add("correct")
       score++
+      console.log('here 2');
    } else {
       evt.target.classList.add("wrong")
       correctAns.classList.add('correct')
+      console.log('here 3');
       }
    if (idx === 9) {
       resultsButton.removeAttribute("hidden")

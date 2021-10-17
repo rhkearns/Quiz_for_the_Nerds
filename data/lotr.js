@@ -6,7 +6,7 @@ const lotrQuestions = [
    {
       "question" : "What was the name of Sauron's fortress in Mordor?",
       "correctAns" : "Barad-D&ucircr",
-      "multChoice" : ["Orthanc", "Barad-D&ucircr", "Cirith Ungol", "Dor L&oacutemon"]
+      "multChoice" : ["Orthanc", "Barad-D&ucircr", "Cirith Ungol", "Dor L&oacutemon", "Angrod"]
    },
 
    {
@@ -63,6 +63,8 @@ const lotrQuestions = [
       "multChoice" : ["25", "33", "41", "50", "67"]
    },
 
-
-
 ]
+
+export{
+   lotrQuestions
+}
