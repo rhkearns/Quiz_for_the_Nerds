@@ -12,9 +12,9 @@ import { hpQuestions } from "../data/hp.js";
 
 // Create variables for number of questions, number answered, number answered correctly
 let ans = null
-let category, score, correctAns 
 let questionArray = []
 let idx = 0
+let category, score, correctAns
 
 /*----------------- Cached Element References ---------*/
 
@@ -25,16 +25,15 @@ const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
 // const body = document.querySelector("body")
 const main = document.querySelector("main")
-const backButton = document.getElementById("back-button")
 const nextButton = document.getElementById("next-button")
 // const questionContainer = document.querySelector('.question-container')
+const homeNavBtn = document.getElementById("home")
 
 /*---------------- Event Listeners -------------------*/
 
 // clicks on categories and answers
 catButtons.addEventListener('click', chooseCategory)
-
-backButton.addEventListener('click', init)
+homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
@@ -54,9 +53,9 @@ function init (){
    idx = 0
    titleEl.innerText = "Nerd Quiz"
    messageEl.innerText = "Test Your Nerd Knowledge"
-   if (catButtons.hasAttribute("hidden")){
-      catButtons.setAttribute('hidden', false)
-   }
+   // if (catButtons.hasAttribute("hidden")){
+   //    catButtons.setAttribute('hidden', false)
+   //}
 }
 
 function chooseCategory(evt){
@@ -64,7 +63,7 @@ function chooseCategory(evt){
    // console.log('Id', evt.target.id);
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
-   pullQuestions()
+   pullQuestions(category)
    renderQuiz()
 }
 
@@ -76,7 +75,6 @@ function renderQuiz () {
    main.innerHTML =`
       <h2> Are you ready to begin?</h2>
       <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
-   backButton.removeAttribute('hidden')
    const startBtn = document.querySelector("#start-button")
    startBtn.addEventListener('click', showQuestion)
    
@@ -99,8 +97,6 @@ function showQuestion() {
       <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
       </ul>
    </div>`
-   const backButton = document.querySelector('#back-button')
-   backButton.addEventListener('click', test)
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
       if (choice.innerText === questionArray[idx].correctAns) {
@@ -137,7 +133,14 @@ function checkAnswer(evt) {
 // totaling results
 // render to result page
 function renderResult () {
-messageEl.innerText = `Congratulations, you answered ${score} correct out of 10!`
+   if (score >= 6){
+      messageEl.innerText = `Congratulations, you answered ${score} correct out of 10!`
+   } else {
+      messageEl.innerText = `Too bad, you only answered ${score} correct out of 10`
+   }
+   main.innerHTML = `<button type="button" class="btn btn-primary" id="home-button">Back to Home</button>`
+   const homeButton = document.querySelector("#home-button")
+   homeButton.addEventListener("click", init)
 }
 
 function nextQuestion () {
@@ -148,11 +151,7 @@ function nextQuestion () {
 }
 
 
-function backToHome(){
-   init()
-}
-
-function pullQuestions () {
+function pullQuestions (category) {
    console.log('here');
    switch (category) {
       case "harry-potter":
@@ -161,15 +160,16 @@ function pullQuestions () {
       case "lord-of-the-rings":
          questionArray = lotrQuestions;
          break;
-      case "star-wars":
-         quesitonArray = swQuestions;
-         break;
-      case "dungeons-dragons":
-         questionArray = ddQuestions;
-      break;
+      // case "star-wars":
+      //    quesitonArray = swQuestions;
+      //    break;
+      // case "dungeons-dragons":
+      //    questionArray = ddQuestions;
+      // break;
       default:
          console.log('try again');;
    }
+   console.log(questionArray);
 } 
 
    
