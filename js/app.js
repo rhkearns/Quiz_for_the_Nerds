@@ -15,6 +15,8 @@ let ans = null
 let questionArray = []
 let idx = 0
 let category, score, correctAns
+let timerIntervalId;
+let winTime, min, sec, seconds = 0
 
 /*----------------- Cached Element References ---------*/
 
@@ -23,11 +25,12 @@ let category, score, correctAns
 const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
-// const body = document.querySelector("body")
 const main = document.querySelector("main")
 const nextButton = document.getElementById("next-button")
-// const questionContainer = document.querySelector('.question-container')
 const homeNavBtn = document.getElementById("home")
+const timerEl = document.querySelector(".timer")
+const resultsButton = document.getElementById("results-button")
+
 
 /*---------------- Event Listeners -------------------*/
 
@@ -35,6 +38,7 @@ const homeNavBtn = document.getElementById("home")
 catButtons.addEventListener('click', chooseCategory)
 homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
+resultsButton.addEventListener('click', renderResult)
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
 // toggle: light and dark mode
@@ -77,12 +81,12 @@ function renderQuiz () {
       <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
    const startBtn = document.querySelector("#start-button")
    startBtn.addEventListener('click', showQuestion)
+   startBtn.addEventListener('click', startTimer)
    
 }
 
 
 function showQuestion() {
-   console.log('here');
    titleEl.innerHTML = `${category}`
    main.innerHTML = `
    <div class="card" style="width: 18rem;">
@@ -118,13 +122,12 @@ function checkAnswer(evt) {
    if (ans === questionArray[idx].correctAns) {
       evt.target.classList.add("correct")
       score++
-      console.log('score', score);
    } else {
       evt.target.classList.add("wrong")
       correctAns.classList.add('correct')
       }
    if (idx === 9) {
-      renderResult()
+      resultsButton.removeAttribute("hidden")
    } else {
       nextButton.removeAttribute("hidden")
    }
@@ -133,11 +136,26 @@ function checkAnswer(evt) {
 // totaling results
 // render to result page
 function renderResult () {
+   resultsButton.setAttribute("hidden", true)
+   winTime = seconds
    if (score >= 6){
-      messageEl.innerText = `Congratulations, you answered ${score} correct out of 10!`
+      if (min < 1) {
+         messageEl.innerText = `Congratulations, you answered ${score} correct out of 10 in ${sec} seconds!`
+      } else if (min < 2) {
+         messageEl.innerText = `Congratulations, you answered ${score} correct out of 10 in ${min} minute and ${sec} seconds!`
+      } else {
+         winMsg.innerText = `Congratulations, you answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
+      }
    } else {
-      messageEl.innerText = `Too bad, you only answered ${score} correct out of 10`
+      if (min < 1) {
+         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${sec} seconds`
+      } else if (min < 2) {
+         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${min} minute and ${sec} seconds`
+      } else {
+         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds`
+      }
    }
+   timerEl.innerText = ''
    main.innerHTML = `<button type="button" class="btn btn-primary" id="home-button">Back to Home</button>`
    const homeButton = document.querySelector("#home-button")
    homeButton.addEventListener("click", init)
@@ -152,7 +170,6 @@ function nextQuestion () {
 
 
 function pullQuestions (category) {
-   console.log('here');
    switch (category) {
       case "harry-potter":
          questionArray = hpQuestions;
@@ -160,20 +177,50 @@ function pullQuestions (category) {
       case "lord-of-the-rings":
          questionArray = lotrQuestions;
          break;
-      // case "star-wars":
-      //    quesitonArray = swQuestions;
-      //    break;
-      // case "dungeons-dragons":
-      //    questionArray = ddQuestions;
-      // break;
+      case "star-wars":
+         questionArray = swQuestions;
+         break;
+      case "dungeons-dragons":
+         questionArray = ddQuestions;
+      break;
       default:
          console.log('try again');;
    }
    console.log(questionArray);
 } 
 
-   
-   
+function startTimer() {
+   // Check for an active timer interval
+   if (timerIntervalId){
+      // If interval exists, clear it and reset seconds to zero
+      seconds = 0
+      clearInterval(timerIntervalId)
+   }
+   // Start a new timer interval
+   timerIntervalId = setInterval(tick, 1000)
+}
+
+function tick() {
+   // Increment seconds by 1
+   seconds++
+   // Call render function
+   if (!winTime) {
+   renderTimer()
+   }
+}
+
+function renderTimer() {
+   // Calculate min/sec
+   min = Math.floor(seconds / 60)
+   sec = seconds % 60
+	// Display current min/sec in the timerEl element
+   if (sec < 10) {
+      timerEl.innerText = `${min}:0${sec}`
+   } else {
+      timerEl.innerText = `${min}:${sec}`
+   }
+}
+
 // extra: shuffle questions
 // extra: random quiz
 // extra: difficulties
