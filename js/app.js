@@ -35,6 +35,8 @@ const nextButton = document.getElementById("next-button")
 const homeNavBtn = document.getElementById("home")
 const timerEl = document.querySelector(".timer")
 const resultsButton = document.getElementById("results-button")
+const startBtn = document.querySelector("#start-button")
+const homeButton = document.querySelector("#home-button")
 
 
 /*---------------- Event Listeners -------------------*/
@@ -45,10 +47,12 @@ catButtons.addEventListener('click', function(event){
    if (event.target.id !== "category-cards")
       chooseCategory(event)
    })
-
+startBtn.addEventListener('click', showQuestion)
+startBtn.addEventListener('click', startTimer)
 homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
 resultsButton.addEventListener('click', renderResult)
+homeButton.addEventListener("click", init)
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
 // toggle: light and dark mode
@@ -63,6 +67,7 @@ function test(evt) {
 init ()
 
 function init (){
+   homeButton.setAttribute('hidden', true)
    score = 0
    idx = 0
    category = ""
@@ -95,16 +100,12 @@ function renderQuiz () {
    //catButtons.innerHTML = ""
    titleEl.innerHTML = catTitle
    messageEl.innerHTML = `Are you ready to begin?`
-   main.innerHTML =`
-      <button type="button" class="btn btn-primary buttons" id="start-button">Begin</button>`
-   const startBtn = document.querySelector("#start-button")
-   startBtn.addEventListener('click', showQuestion)
-   startBtn.addEventListener('click', startTimer)
-   
+   startBtn.removeAttribute('hidden')
 }
 
 
 function showQuestion() {
+   startBtn.setAttribute('hidden', true)
    titleEl.innerHTML = catTitle
    messageEl.innerText = ''
    main.innerHTML = `
@@ -181,9 +182,10 @@ function renderResult () {
       }
    }
    timerEl.innerText = ''
-   main.innerHTML = `<button type="button" class="btn btn-primary buttons" id="home-button">Back to Home</button>`
-   const homeButton = document.querySelector("#home-button")
-   homeButton.addEventListener("click", init)
+   main.innerText = ''
+   homeButton.removeAttribute('hidden')
+   
+   
 }
 
 function nextQuestion () {
