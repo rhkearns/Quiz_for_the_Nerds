@@ -169,19 +169,19 @@ function renderResult () {
    winTime = seconds
    if (score >= 6){
       if (min < 1) {
-         messageEl.innerText = `Congratulations, you answered ${score} correct out of 10 in ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${sec} seconds!`
       } else if (min < 2) {
-         messageEl.innerText = `Congratulations, you answered ${score} correct out of 10 in ${min} minute and ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${min} minute and ${sec} seconds!`
       } else {
-         winMsg.innerText = `Congratulations, you answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
       }
    } else {
       if (min < 1) {
-         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${sec} seconds`
+         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${sec} seconds`
       } else if (min < 2) {
-         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${min} minute and ${sec} seconds`
+         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${min} minute and ${sec} seconds`
       } else {
-         messageEl.innerText = `Too Bad, you only answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds`
+         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds`
       }
    }
    timerEl.innerText = ''
