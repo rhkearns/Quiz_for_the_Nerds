@@ -60,11 +60,19 @@ init ()
 function init (){
    score = 0
    idx = 0
+   category = ""
    titleEl.innerText = "Nerd Quiz"
+   questionArray = []
+   ans = null
    messageEl.innerText = "Test Your Nerd Knowledge"
-   // if (catButtons.hasAttribute("hidden")){
-   //    catButtons.setAttribute('hidden', false)
-   //}
+   if (catButtons.hasAttribute("hidden")){
+      catButtons.hidden = false
+   }
+   main.innerHTML = ""
+   timerEl.innerText = ""
+   if (timerIntervalId) {
+      clearInterval(timerIntervalId)
+   }
 }
 
 function chooseCategory(evt){
@@ -79,7 +87,7 @@ function chooseCategory(evt){
 
 // render to quiz page
 function renderQuiz () {
-   catButtons.innerHTML = ""
+   //catButtons.innerHTML = ""
    titleEl.innerHTML = `${category}`
    main.innerHTML =`
       <h2> Are you ready to begin?</h2>
