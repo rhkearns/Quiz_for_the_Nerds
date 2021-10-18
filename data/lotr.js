@@ -1,4 +1,4 @@
-// Quesitons for Harry Potter Category
+// Quesitons for Lord of the Rings Category
 // One object for each question
 
 const lotrQuestions = [

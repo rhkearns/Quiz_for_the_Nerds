@@ -5,8 +5,11 @@
 // objects for each quiz
 // object for each question with answer choices 
 
+import { gotQuestions } from "../data/got.js";
 import { hpQuestions } from "../data/hp.js";
 import { lotrQuestions} from "../data/lotr.js";
+import { mcuQuestions } from "../data/mcu.js";
+import { swQuestions} from "../data/sw.js";
 
 
 /*---------------------- Variables --------------------*/
@@ -189,6 +192,12 @@ function pullQuestions (category) {
          break;
       case "dungeons-dragons":
          questionArray = ddQuestions;
+      break;
+      case "game-of-thrones":
+         questionArray = gotQuestions;
+      break;
+      case "marvel-cinematic-universe":
+         questionArray = mcuQuestions;
       break;
       default:
          console.log('try again');;
