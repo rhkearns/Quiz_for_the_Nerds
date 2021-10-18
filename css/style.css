@@ -29,6 +29,10 @@ html {
     align-content: space-around; */
   }
 
+  body.dark {
+    background-color: darkslateblue;
+  }
+
   nav {
     background-color: orange;
     height: 40px;
@@ -40,6 +44,10 @@ html {
 
   main {
     font-size: 3.3rem;
+  }
+
+  nav > div:last-child {
+    margin-left: auto;
   }
 
   .buttons {

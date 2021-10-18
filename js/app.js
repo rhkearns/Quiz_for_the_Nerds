@@ -27,6 +27,7 @@ let winTime, min, sec, seconds = 0
 
 // Cached elements: question message; muliple choices 1-5; categories?; 
 // categories
+const body = document.querySelector("body")
 const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
@@ -37,7 +38,7 @@ const timerEl = document.querySelector(".timer")
 const resultsButton = document.getElementById("results-button")
 const startBtn = document.querySelector("#start-button")
 const homeButton = document.querySelector("#home-button")
-
+const lightDark = document.querySelector(".light-dark")
 
 /*---------------- Event Listeners -------------------*/
 
@@ -53,6 +54,7 @@ homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
 resultsButton.addEventListener('click', renderResult)
 homeButton.addEventListener("click", init)
+lightDark.addEventListener('click', lightDarkToggle)
 // extra 1: hover over on categories and answers
 // extra 2: click on pause button
 // toggle: light and dark mode
@@ -65,6 +67,7 @@ function test(evt) {
 
 // init to landing page
 init ()
+checkDarkPref()
 
 function init (){
    homeButton.setAttribute('hidden', true)
@@ -260,6 +263,18 @@ function renderTimer() {
    }
 }
 
+function lightDarkToggle(){
+   body.className = body.className === "dark" ? "" : "dark"
+}
+
+function checkDarkPref () {
+   if (
+      window.matchMedia("(prefers-color-scheme:dark)").matches && body.className !== "dark"
+   ) {
+      lightDarkToggle()
+      lightDark.setAttribute("checked", true)
+   }
+}
 // extra: shuffle questions
 // extra: random quiz
 // extra: difficulties
