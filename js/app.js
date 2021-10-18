@@ -19,7 +19,7 @@ import { ddQuestions} from "../data/dd.js";
 let ans = null
 let questionArray = []
 let idx = 0
-let category, score, correctAns
+let category, score, correctAns, catTitle
 let timerIntervalId;
 let winTime, min, sec, seconds = 0
 
@@ -40,7 +40,12 @@ const resultsButton = document.getElementById("results-button")
 /*---------------- Event Listeners -------------------*/
 
 // clicks on categories and answers
-catButtons.addEventListener('click', chooseCategory)
+catButtons.addEventListener('click', function(event){
+   event.preventDefault()
+   if (event.target.id !== "category-cards")
+      chooseCategory(event)
+   })
+
 homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
 resultsButton.addEventListener('click', renderResult)
@@ -88,9 +93,9 @@ function chooseCategory(evt){
 // render to quiz page
 function renderQuiz () {
    //catButtons.innerHTML = ""
-   titleEl.innerHTML = `${category}`
+   titleEl.innerHTML = catTitle
+   messageEl.innerHTML = `Are you ready to begin?`
    main.innerHTML =`
-      <h2> Are you ready to begin?</h2>
       <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
    const startBtn = document.querySelector("#start-button")
    startBtn.addEventListener('click', showQuestion)
@@ -100,9 +105,10 @@ function renderQuiz () {
 
 
 function showQuestion() {
-   titleEl.innerHTML = `${category}`
+   titleEl.innerHTML = catTitle
+   messageEl.innerText = ''
    main.innerHTML = `
-   <div class="card" style="width: 18rem;">
+   <div class="card" style="width: 100%;">
    <div class="card-header">
       ${questionArray[idx].question} 
    </div>
@@ -192,21 +198,27 @@ function pullQuestions (category) {
    switch (category) {
       case "harry-potter":
          questionArray = hpQuestions;
+         catTitle = "Harry Potter"
          break;
       case "lord-of-the-rings":
          questionArray = lotrQuestions;
+         catTitle = "Lord of the Rings"
          break;
       case "star-wars":
          questionArray = swQuestions;
+         catTitle = "Star Wars"
          break;
       case "dungeons-dragons":
          questionArray = ddQuestions;
+         catTitle = "Dungeons & Dragons"
       break;
       case "game-of-thrones":
          questionArray = gotQuestions;
+         catTitle = "Game of Thrones"
       break;
       case "marvel-cinematic-universe":
          questionArray = mcuQuestions;
+         catTitle = "Marvel Cinematic Universe"
       break;
       default:
          console.log('try again');;
