@@ -96,7 +96,7 @@ function renderQuiz () {
    titleEl.innerHTML = catTitle
    messageEl.innerHTML = `Are you ready to begin?`
    main.innerHTML =`
-      <button type="button" class="btn btn-primary" id="start-button">Begin</button>`
+      <button type="button" class="btn btn-primary buttons" id="start-button">Begin</button>`
    const startBtn = document.querySelector("#start-button")
    startBtn.addEventListener('click', showQuestion)
    startBtn.addEventListener('click', startTimer)
@@ -181,7 +181,7 @@ function renderResult () {
       }
    }
    timerEl.innerText = ''
-   main.innerHTML = `<button type="button" class="btn btn-primary" id="home-button">Back to Home</button>`
+   main.innerHTML = `<button type="button" class="btn btn-primary buttons" id="home-button">Back to Home</button>`
    const homeButton = document.querySelector("#home-button")
    homeButton.addEventListener("click", init)
 }
