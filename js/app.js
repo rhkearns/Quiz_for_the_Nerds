@@ -10,6 +10,7 @@ import { hpQuestions } from "../data/hp.js";
 import { lotrQuestions} from "../data/lotr.js";
 import { mcuQuestions } from "../data/mcu.js";
 import { swQuestions} from "../data/sw.js";
+import { ddQuestions} from "../data/dd.js";
 
 
 /*---------------------- Variables --------------------*/
