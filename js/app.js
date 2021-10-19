@@ -83,6 +83,9 @@ checkDarkPref()
 function init (){
    console.log('init');
    homeButton.setAttribute('hidden', true)
+   if (timerIntervalId) {
+      clearInterval(timerIntervalId)
+   }
    score = 0
    idx = 0
    category = ""
@@ -98,9 +101,7 @@ function init (){
    }
    main.innerHTML = ""
    timerEl.innerText = ""
-   if (timerIntervalId) {
-      clearInterval(timerIntervalId)
-   }
+   
 }
 
 function chooseCategory(evt){
@@ -204,7 +205,6 @@ function renderResult () {
       }
    }
    timerEl.innerText = ''
-   clearInterval(timerIntervalId)
    main.innerText = ''
    homeButton.removeAttribute('hidden')
 }
@@ -262,7 +262,6 @@ function startTimer() {
    if (timerIntervalId){
       // If interval exists, clear it and reset seconds to zero
       seconds = 0
-      console.log('here');
       clearInterval(timerIntervalId)
    }
    // Start a new timer interval
