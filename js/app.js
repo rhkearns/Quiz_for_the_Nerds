@@ -12,6 +12,13 @@ import { mcuQuestions } from "../data/mcu.js";
 import { swQuestions} from "../data/sw.js";
 import { ddQuestions} from "../data/dd.js";
 
+const hpSound = new Audio ("../sounds/Magic-Spell-A-Short.mp3")
+const lotrSound = new Audio ()
+const swSound = new Audio ()
+const gotSound = new Audio ()
+const mcuSound = new Audio ()
+const ddSound = new Audio ()
+
 
 /*---------------------- Variables --------------------*/
 
@@ -19,7 +26,7 @@ import { ddQuestions} from "../data/dd.js";
 let ans = null
 let questionArray = []
 let idx = 0
-let category, score, correctAns, catTitle
+let category, score, correctAns, catTitle, catSound
 let timerIntervalId;
 let winTime, min, sec, seconds = 0
 
@@ -91,8 +98,12 @@ function init (){
 }
 
 function chooseCategory(evt){
+   setTimeout(function(){
+      catSound.play();
+   }, 500)
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
+   
    pullQuestions(category)
    renderQuiz()
 }
@@ -195,6 +206,7 @@ function pullQuestions (category) {
       case "harry-potter":
          questionArray = hpQuestions;
          catTitle = "Harry Potter"
+         catSound = hpSound
          break;
       case "lord-of-the-rings":
          questionArray = lotrQuestions;
