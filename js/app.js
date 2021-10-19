@@ -294,7 +294,7 @@ function renderTimer() {
 
 function lightDarkToggle(){
    body.className = body.className === "dark" ? "" : "dark"
-   switchLabel.innerText = body.className === "dark" ? switchLabel.innerText = "🔆" : switchLabel.innerText = "🌙"
+   switchLabel.innerText = body.className === "dark" ?  "🔆" : "🌙"
    
 }
 
