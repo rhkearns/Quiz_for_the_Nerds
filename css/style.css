@@ -93,12 +93,12 @@ html {
   }
 
   .correct {
-    background-color: green;
+    background-color: rgb(0, 80, 0);
     color: whitesmoke;
   }
 
   .wrong {
-    background-color: red;
+    background-color: rgb(129, 0, 0);
     color: whitesmoke;
   }
 
