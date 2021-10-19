@@ -10,7 +10,7 @@ const mcuQuestions = [
    },
    
    {
-      "question" : "At the end of Iron Man, what mateiral is the Iron Man suit made from?",
+      "question" : "At the end of Iron Man, what material is the Iron Man suit made from?",
       "correctAns" : "Gold-Titanium Alloy",
       "multChoice" : ["Cubic Zirconium", "Chrome-plated Iron", "Vibranium", "Gold-Titanium Alloy", "Nickel-Cobalt Alloy"]
    },
