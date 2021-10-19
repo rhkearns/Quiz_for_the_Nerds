@@ -105,11 +105,9 @@ function chooseCategory(evt){
    }, 100)
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
-   
    pullQuestions(category)
    renderQuiz()
 }
-
 
 // render to quiz page
 function renderQuiz () {
@@ -208,7 +206,7 @@ function nextQuestion () {
    showQuestion()
 }
 
-
+//assigns global vairables with imported information
 function pullQuestions (category) {
    switch (category) {
       case "harry-potter":
