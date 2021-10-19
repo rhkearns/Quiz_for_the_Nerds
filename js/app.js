@@ -39,6 +39,7 @@ const resultsButton = document.getElementById("results-button")
 const startBtn = document.querySelector("#start-button")
 const homeButton = document.querySelector("#home-button")
 const lightDark = document.querySelector(".light-dark")
+const switchLabel = document.querySelector('.switch-label')
 
 /*---------------- Event Listeners -------------------*/
 
@@ -90,8 +91,6 @@ function init (){
 }
 
 function chooseCategory(evt){
-   // console.log('innertext', evt.target.innerText);
-   // console.log('Id', evt.target.id);
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
    pullQuestions(category)
@@ -101,7 +100,6 @@ function chooseCategory(evt){
 
 // render to quiz page
 function renderQuiz () {
-   //catButtons.innerHTML = ""
    titleEl.innerHTML = catTitle
    messageEl.innerHTML = `Are you ready to begin?`
    startBtn.removeAttribute('hidden')
@@ -127,11 +125,8 @@ function showQuestion() {
    </div>`
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
-      console.log('choice', choice);
-      console.log(questionArray[idx].correctAns);
       if (choice.innerText === questionArray[idx].correctAns) {
          correctAns = choice
-         console.log('correctAns', correctAns);
       }
    })
    const multiChoiceBlock = document.querySelector(".list-group")
@@ -185,8 +180,6 @@ function renderResult () {
    timerEl.innerText = ''
    main.innerText = ''
    homeButton.removeAttribute('hidden')
-   
-   
 }
 
 function nextQuestion () {
@@ -262,6 +255,8 @@ function renderTimer() {
 
 function lightDarkToggle(){
    body.className = body.className === "dark" ? "" : "dark"
+   switchLabel.innerText = body.className === "dark" ? switchLabel.innerText = "🔆" : switchLabel.innerText = "🌙"
+   
 }
 
 function checkDarkPref () {
