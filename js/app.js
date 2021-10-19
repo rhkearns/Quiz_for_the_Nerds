@@ -54,11 +54,12 @@ homeNavBtn.addEventListener('click', init)
 nextButton.addEventListener('click', nextQuestion)
 resultsButton.addEventListener('click', renderResult)
 homeButton.addEventListener("click", init)
-lightDark.addEventListener('click', lightDarkToggle)
+
 // extra 1: hover over on categories and answers
-// extra 2: click on pause button
+
 // toggle: light and dark mode
-// replay quiz
+lightDark.addEventListener('click', lightDarkToggle)
+
 
 function test(evt) {
    console.log(evt.target);
@@ -145,15 +146,12 @@ function showQuestion() {
 // check answer
 function checkAnswer(evt) {
    ans = evt.target.innerText;
-   console.log('here 1');
    if (ans === questionArray[idx].correctAns) {
       evt.target.classList.add("correct")
       score++
-      console.log('here 2');
    } else {
       evt.target.classList.add("wrong")
       correctAns.classList.add('correct')
-      console.log('here 3');
       }
    if (idx === 9) {
       resultsButton.removeAttribute("hidden")
@@ -228,7 +226,6 @@ function pullQuestions (category) {
       default:
          console.log('try again');;
    }
-   console.log(questionArray);
 } 
 
 function startTimer() {
@@ -275,6 +272,8 @@ function checkDarkPref () {
       lightDark.setAttribute("checked", true)
    }
 }
+
+
 // extra: shuffle questions
 // extra: random quiz
 // extra: difficulties
