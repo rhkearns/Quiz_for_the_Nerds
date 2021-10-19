@@ -39,7 +39,7 @@ html {
     background: linear-gradient(78deg, rgba(18,33,40,1) 0%, rgba(19,15,45,1) 76%);
     --darkFont: rgb(255, 255, 255);
     --choices: rgb(92, 92, 92);
-    --catTag: rgba(60, 87, 87, 0.301);
+    --catTag: rgba(123, 153, 153, 0.301);
     --question: rgb(9, 67, 153);
     --shadow: rgba(82, 74, 74, 0.568);
     color: var(--darkFont)
