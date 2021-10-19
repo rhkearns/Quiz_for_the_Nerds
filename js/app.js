@@ -111,7 +111,7 @@ function showQuestion() {
    titleEl.innerHTML = catTitle
    messageEl.innerText = ''
    main.innerHTML = `
-   <div class="card" style="width: 100%;">
+   <div class="qCard" style="width: 100%;">
    <div class="card-header">
       ${questionArray[idx].question} 
    </div>
@@ -162,19 +162,19 @@ function renderResult () {
    winTime = seconds
    if (score >= 6){
       if (min < 1) {
-         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations! <br> You answered ${score} correct out of 10 in ${sec} seconds!`
       } else if (min < 2) {
-         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${min} minute and ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations! <br> You answered ${score} correct out of 10 in ${min} minute and ${sec} seconds!`
       } else {
-         messageEl.innerHTML = `Congratulations <br> You answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
+         messageEl.innerHTML = `Congratulations! <br> You answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
       }
    } else {
       if (min < 1) {
-         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${sec} seconds`
+         messageEl.innerHTML = `Too Bad! <br> You only answered ${score} correct out of 10 in ${sec} seconds`
       } else if (min < 2) {
-         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${min} minute and ${sec} seconds`
+         messageEl.innerHTML = `Too Bad! <br> You only answered ${score} correct out of 10 in ${min} minute and ${sec} seconds`
       } else {
-         messageEl.innerHTML = `Too Bad <br> You only answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds`
+         messageEl.innerHTML = `Too Bad! <br> You only answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds`
       }
    }
    timerEl.innerText = ''
