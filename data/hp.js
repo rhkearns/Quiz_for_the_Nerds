@@ -30,7 +30,7 @@ const hpQuestions = [
    {
       "question" : "Who of the following was never a member of the Order of the Phoenix?",
       "correctAns" : "Horace Slughorn",
-      "multChoice" : ["Nymphadora Tonks", "Severus Snape", "Horace Slughorn", "Elphias Doge", "Aberforth Dumbledor",]
+      "multChoice" : ["Nymphadora Tonks", "Severus Snape", "Horace Slughorn", "Elphias Doge", "Aberforth Dumbledore",]
    },
 
    {

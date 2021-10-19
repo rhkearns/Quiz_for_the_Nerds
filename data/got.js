@@ -48,7 +48,7 @@ const gotQuestions = [
    },
 
    {
-      "question" : "Which is not and aspect of The Seven?",
+      "question" : "Which is not an aspect of The Seven?",
       "correctAns" : "The Child",
       "multChoice" : ["The Stranger", "The Crone", "The Smith", "The Child", "The Warrior"]
    },

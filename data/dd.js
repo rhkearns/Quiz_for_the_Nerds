@@ -5,8 +5,8 @@ const ddQuestions = [
    
    {
       "question" : "When can monsters use Legendary Actions?",
-      "correctAns" : "At the end of Player's turns",
-      "multChoice" : ["At any point on its turn", "At the beginning of its own turn", "At the end of Player's turns", "On player turns immediately after being attacked", "At the beginning of each round"]
+      "correctAns" : "At the end of Players' turns",
+      "multChoice" : ["At any point during its turn", "At the beginning of its own turn", "At the end of Players' turns", "On player turns immediately after being attacked", "At the beginning of each round"]
    },
    
    {
