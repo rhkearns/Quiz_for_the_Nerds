@@ -93,6 +93,7 @@ html {
     background-color: rgba(39, 39, 39, 0.5);
     font-size: 2.1rem;
     border-radius: 5px;
+    margin-top: 5px;
     color: whitesmoke;
   }
 
@@ -101,7 +102,7 @@ html {
     height: 200px;
     margin: 80px;
     border-radius: 4%;
-    box-shadow: ;
+    box-shadow: 5px 5px darkgrey;
   }
 
   #header{
@@ -128,27 +129,27 @@ html {
   }
 
   #hpCard {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,103,9,1) 42%, rgba(0,212,255,1) 100%);
-
+    background: rgb(199,122,11);
+    background: linear-gradient(90deg, rgba(199,122,11,1) 0%, rgba(255,211,0,1) 100%);
   }
 
   #lotrCard {
-    background-color: yellow;
+    
   }
 
   #swCard {
-    background-color: yellow;
+    
+  
   }
 
   #gotCard {
-    background-color: yellow;
+    
   }
 
   #mcuCard {
-    background-color: yellow;
+    
   }
 
   #ddCard {
-    background-color: yellow;
+    
   }
