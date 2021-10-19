@@ -81,11 +81,15 @@ init ()
 checkDarkPref()
 
 function init (){
+   console.log('init');
    homeButton.setAttribute('hidden', true)
    score = 0
    idx = 0
    category = ""
    titleEl.innerText = "Nerd Quiz"
+   timerIntervalId = 0
+   winTime = 0
+   seconds = 0
    questionArray = []
    ans = null
    messageEl.innerText = "Test Your Nerd Knowledge"
@@ -100,6 +104,7 @@ function init (){
 }
 
 function chooseCategory(evt){
+   console.log('chooseCategory');
    setTimeout(function(){
       catSound.play();
    }, 100)
@@ -111,6 +116,7 @@ function chooseCategory(evt){
 
 // render to quiz page
 function renderQuiz () {
+   console.log("renderQuiz");
    titleEl.innerHTML = catTitle
    messageEl.innerHTML = `Are you ready to begin?`
    startBtn.removeAttribute('hidden')
@@ -118,6 +124,7 @@ function renderQuiz () {
 
 
 function showQuestion() {
+   console.log('showQuestion')
    startBtn.setAttribute('hidden', true)
    titleEl.innerHTML = catTitle
    messageEl.innerText = ''
@@ -151,6 +158,7 @@ function showQuestion() {
 
 // check answer
 function checkAnswer(evt) {
+   console.log('checkAnswer');
    ans = evt.target.innerText;
    if (ans === questionArray[idx].correctAns) {
       evt.target.classList.add("correct")
@@ -169,6 +177,7 @@ function checkAnswer(evt) {
 // totaling results
 // render to result page
 function renderResult () {
+   console.log("renderResult");
    resultsButton.setAttribute("hidden", true)
    winTime = seconds
    if (score >= 6){
@@ -195,11 +204,13 @@ function renderResult () {
       }
    }
    timerEl.innerText = ''
+   clearInterval(timerIntervalId)
    main.innerText = ''
    homeButton.removeAttribute('hidden')
 }
 
 function nextQuestion () {
+   console.log('nextQuestion');
    nextButton.setAttribute('hidden', true)
    idx++
    ans = null
@@ -208,6 +219,7 @@ function nextQuestion () {
 
 //assigns global vairables with imported information
 function pullQuestions (category) {
+   console.log("pullQuestions");
    switch (category) {
       case "harry-potter":
          questionArray = hpQuestions;
@@ -245,10 +257,12 @@ function pullQuestions (category) {
 } 
 
 function startTimer() {
+   console.log('startTimer');
    // Check for an active timer interval
    if (timerIntervalId){
       // If interval exists, clear it and reset seconds to zero
       seconds = 0
+      console.log('here');
       clearInterval(timerIntervalId)
    }
    // Start a new timer interval
@@ -256,6 +270,7 @@ function startTimer() {
 }
 
 function tick() {
+   console.log('tick');
    // Increment seconds by 1
    seconds++
    // Call render function
@@ -265,6 +280,7 @@ function tick() {
 }
 
 function renderTimer() {
+   console.log("renderTimer");
    // Calculate min/sec
    min = Math.floor(seconds / 60)
    sec = seconds % 60
