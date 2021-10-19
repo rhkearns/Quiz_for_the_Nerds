@@ -31,6 +31,7 @@ html {
     --choices: rgb(233, 233, 233);
     --catTag: rgba(20, 34, 34, 0.555);
     --question: rgb(75, 219, 188);
+    /* --shadow: rgba(37, 35, 35, 0.342); */
   }
 
   body.dark {
@@ -40,6 +41,7 @@ html {
     --choices: rgb(92, 92, 92);
     --catTag: rgba(60, 87, 87, 0.301);
     --question: rgb(9, 67, 153);
+    --shadow: rgba(82, 74, 74, 0.568);
     color: var(--darkFont)
   }
 
@@ -118,7 +120,7 @@ html {
     margin: 70px;
     margin-top: 0px;
     border-radius: 4%;
-    box-shadow: 8px -8px 5px rgba(37, 35, 35, 0.342);
+    box-shadow: 8px -8px 5px var(--shadow);
   }
 
   #header{
