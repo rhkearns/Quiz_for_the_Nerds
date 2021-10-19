@@ -13,12 +13,14 @@ import { swQuestions} from "../data/sw.js";
 import { ddQuestions} from "../data/dd.js";
 
 const hpSound = new Audio ("../sounds/Magic-Spell-A-Short.mp3")
-const lotrSound = new Audio ()
-const swSound = new Audio ()
-const gotSound = new Audio ()
-const mcuSound = new Audio ()
-const ddSound = new Audio ()
-
+const lotrSound = new Audio ("../sounds/DoubleSwordScrape.mp3")
+const swSound = new Audio ("../sounds/Laser_shoot 162 (1).wav")
+const gotSound = new Audio ("../sounds/Dragon-Roar-11.mp3")
+const mcuSound = new Audio ("../sounds/Swipe-Punch.mp3")
+const ddSound = new Audio ("../sounds/Dice-Shaking-in-Hand-2.mp3")
+const clickSound = new Audio ("../sounds/Mouse-Click-01.mp3")
+const sadSound = new Audio ("../sounds/Sad-Trombone.mp3")
+const happySound = new Audio ("../sounds/Party-Blower.mp3")
 
 /*---------------------- Variables --------------------*/
 
@@ -100,7 +102,7 @@ function init (){
 function chooseCategory(evt){
    setTimeout(function(){
       catSound.play();
-   }, 500)
+   }, 100)
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
    
@@ -172,6 +174,9 @@ function renderResult () {
    resultsButton.setAttribute("hidden", true)
    winTime = seconds
    if (score >= 6){
+      setTimeout(function(){
+         happySound.play()
+      }, 50)
       if (min < 1) {
          messageEl.innerHTML = `Congratulations! <br> You answered ${score} correct out of 10 in ${sec} seconds!`
       } else if (min < 2) {
@@ -180,6 +185,9 @@ function renderResult () {
          messageEl.innerHTML = `Congratulations! <br> You answered ${score} correct out of 10 in ${min} minutes and ${sec} seconds!`
       }
    } else {
+      setTimeout(function(){
+         sadSound.play()
+      }, 50)
       if (min < 1) {
          messageEl.innerHTML = `Too Bad! <br> You only answered ${score} correct out of 10 in ${sec} seconds`
       } else if (min < 2) {
@@ -211,22 +219,27 @@ function pullQuestions (category) {
       case "lord-of-the-rings":
          questionArray = lotrQuestions;
          catTitle = "Lord of the Rings"
+         catSound = lotrSound
          break;
       case "star-wars":
          questionArray = swQuestions;
          catTitle = "Star Wars"
+         catSound = swSound
          break;
       case "dungeons-dragons":
          questionArray = ddQuestions;
          catTitle = "Dungeons & Dragons"
+         catSound = ddSound
       break;
       case "game-of-thrones":
          questionArray = gotQuestions;
          catTitle = "Game of Thrones"
+         catSound = gotSound
       break;
       case "marvel-cinematic-universe":
          questionArray = mcuQuestions;
          catTitle = "Marvel Cinematic Universe"
+         catSound = mcuSound
       break;
       default:
          console.log('try again');;
