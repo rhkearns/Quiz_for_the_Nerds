@@ -64,11 +64,11 @@ html {
 
   .buttons {
     font-size: 25px;
-    border: 3px solid black
+    border: 1px solid black
   }
 
   .qCard {
-    border: none;
+    border: 1px solid black;
     color: var(--darkFont)
   }
 
@@ -78,7 +78,7 @@ html {
   } 
 
   .list-group-item {
-    border: 2px solid black;
+    border: 5px solid black;
     background: var(--choices);
     color: var(--darkFont);
   }
@@ -131,6 +131,16 @@ html {
     margin-top: 0px;
     border-radius: 4%;
     box-shadow: 8px -8px 5px var(--shadow);
+  }
+
+  .progress {
+    margin: 5px 0px;
+    border: 1px solid black;
+  }
+
+  .progress-bar {
+    font-size: 25px;
+    background: var(--question);
   }
 
   #header{

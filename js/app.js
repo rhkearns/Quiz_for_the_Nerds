@@ -143,6 +143,9 @@ function showQuestion() {
       <li class="list-group-item" id="d">${questionArray[idx].multChoice[3]}</li>
       <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
       </ul>
+   </div>
+   <div class="progress" style="height:30px">
+      <div class="progress-bar" role="progressbar" style="width: ${(idx+1) * 10}%" aria-valuenow="${idx * 10}" aria-valuemin="0" aria-valuemax="100">${idx+1}/10</div>
    </div>`
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
