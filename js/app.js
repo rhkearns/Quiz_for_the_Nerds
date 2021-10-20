@@ -17,6 +17,8 @@ const clickSound = new Audio ("../sounds/Mouse-Click-01.mp3")
 const sadSound = new Audio ("../sounds/Sad-Trombone.mp3")
 const happySound = new Audio ("../sounds/Party-Blower.mp3")
 
+const categoriesArray = ["harry-potter", "lord-of-the-rings", "star-wars", "dungeons-dragons", "game-of-thrones", "marvel-cinematic-universe"]
+
 /*---------------------- Variables --------------------*/
 
 // Create variables for number of questions, number answered, number answered correctly
@@ -45,6 +47,7 @@ const startBtn = document.querySelector("#start-button")
 const homeButton = document.querySelector("#home-button")
 const lightDark = document.querySelector(".light-dark")
 const switchLabel = document.querySelector('.switch-label')
+const randomBtn = document.querySelector('#random-button')
 
 /*---------------- Event Listeners -------------------*/
 
@@ -71,6 +74,8 @@ catButtons.addEventListener('mouseover', function(event){
 // toggle: light and dark mode
 lightDark.addEventListener('click', lightDarkToggle)
 
+// generate random quiz
+randomBtn.addEventListener('click', randomQuiz)
 
 function test(evt) {
    console.log(evt.target);
@@ -313,9 +318,24 @@ function checkDarkPref () {
    }
 }
 
-// function showLabel(evt){
-//    console.log(evt.target.id);
-// }
+function randomQuiz(evt){
+   let rIdx = Math.floor(Math.random() * 6)
+   console.log(rIdx);
+   category = categoriesArray[rIdx]
+   console.log(category);
+   setTimeout(function(){
+      catSound.volume = .20
+      catSound.play();
+   }, 100)
+   catButtons.setAttribute('hidden', true)
+   randomBtn.setAttribute('hidden', true)
+   pullQuestions(category)
+   renderQuiz()
+}
+
+function showLabel(evt){
+   console.log(cardBody);
+}
 
 // extra: shuffle questions
 // extra: random quiz

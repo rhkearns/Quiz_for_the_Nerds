@@ -151,6 +151,7 @@ html {
 
   #title {
     font-size: 4.8rem;
+    text-decoration: underline;
   }
 
   #message {
