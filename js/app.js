@@ -66,11 +66,22 @@ resultsButton.addEventListener('click', renderResult)
 homeButton.addEventListener("click", init)
 
 // extra 1: hover over on categories and answers
-catButtons.addEventListener('mouseover', function(event){
-   event.preventDefault()
-   if (event.target.id !== "category-cards")
-      showLabel(event)
-   })
+catButtons.addEventListener('mouseover', function(evt){
+   evt.preventDefault()
+   if (evt.target.id !== "category-cards") {
+      if (evt.target.nextElementSibling.hidden = true){
+         showLabel(evt)
+      }
+   } 
+})
+catButtons.addEventListener('mouseout', function(evt){
+   evt.preventDefault()
+   if (evt.target.id !== "category-cards") {
+      if (evt.target.nextElementSibling.hidden = false) {
+         hideLabel(evt)
+      }
+   }
+})
 
 // toggle: light and dark mode
 lightDark.addEventListener('click', lightDarkToggle)
@@ -339,11 +350,16 @@ function randomQuiz(evt){
 }
 
 function showLabel(evt){
-   cardBody.forEach(function(card){
-      console.log(card.firstElementChild)
-   })
-   console.log(cardBody);
+   evt.target.nextElementSibling.hidden = false
+   evt.target.nextElementSibling.classList.add('animate__animated', "animate__slideInDown")
+   console.log(evt.target.nextElementSibling.classList);
 }
+
+function hideLabel(evt){
+   evt.target.nextElementSibling.hidden = true
+   evt.target.nextElementSibling.classList.add('animate__animated', "animate__slideOutUp")
+}
+
 
 // extra: shuffle questions
 
