@@ -1,10 +1,5 @@
 /*-------------------- Constants------------------------*/
 
-// sound for clicks
-// sound for passing/failing quiz
-// objects for each quiz
-// object for each question with answer choices 
-
 import { gotQuestions } from "../data/got.js";
 import { hpQuestions } from "../data/hp.js";
 import { lotrQuestions} from "../data/lotr.js";
