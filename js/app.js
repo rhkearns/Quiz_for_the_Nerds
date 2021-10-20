@@ -106,6 +106,9 @@ function init (){
    if (catButtons.hasAttribute("hidden")){
       catButtons.hidden = false
    }
+   if (randomBtn.hasAttribute("hidden")){
+      randomBtn.hidden = false
+   }
    main.innerHTML = ""
    timerEl.innerText = ""
    
