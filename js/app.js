@@ -69,7 +69,7 @@ homeButton.addEventListener("click", init)
 catButtons.addEventListener('mouseover', function(evt){
    evt.preventDefault()
    if (evt.target.id !== "category-cards") {
-      if (evt.target.nextElementSibling.hidden = true){
+      if (evt.target.nextElementSibling.hidden){
          showLabel(evt)
       }
    } 
@@ -77,7 +77,7 @@ catButtons.addEventListener('mouseover', function(evt){
 catButtons.addEventListener('mouseout', function(evt){
    evt.preventDefault()
    if (evt.target.id !== "category-cards") {
-      if (evt.target.nextElementSibling.hidden = false) {
+      if (!evt.target.nextElementSibling.hidden) {
          hideLabel(evt)
       }
    }
@@ -350,14 +350,20 @@ function randomQuiz(evt){
 }
 
 function showLabel(evt){
+   console.log('showLabel');
    evt.target.nextElementSibling.hidden = false
    evt.target.nextElementSibling.classList.add('animate__animated', "animate__slideInDown")
    console.log(evt.target.nextElementSibling.classList);
+   console.log(evt.target.nextElementSibling.hidden);
 }
 
 function hideLabel(evt){
+   console.log('hideLabel');
    evt.target.nextElementSibling.hidden = true
-   evt.target.nextElementSibling.classList.add('animate__animated', "animate__slideOutUp")
+   evt.target.nextElementSibling.classList.remove("animate__slideOutUp")
+   console.log(evt.target.nextElementSibling.classList);
+   evt.target.nextElementSibling.classList.add("animate__slideOutUp")
+   console.log(evt.target.nextElementSibling.hidden);
 }
 
 
