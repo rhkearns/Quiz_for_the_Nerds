@@ -107,6 +107,7 @@ function init (){
 function chooseCategory(evt){
    console.log('chooseCategory');
    setTimeout(function(){
+      catSound.volume = .20
       catSound.play();
    }, 100)
    category = evt.target.id;
@@ -183,6 +184,7 @@ function renderResult () {
    winTime = seconds
    if (score >= 6){
       setTimeout(function(){
+         happySound.volume = .20
          happySound.play()
       }, 50)
       if (min < 1) {
@@ -194,6 +196,7 @@ function renderResult () {
       }
    } else {
       setTimeout(function(){
+         sadSound.volume = .20
          sadSound.play()
       }, 50)
       if (min < 1) {
