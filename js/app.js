@@ -49,6 +49,7 @@ const lightDark = document.querySelector(".light-dark")
 const switchLabel = document.querySelector('.switch-label')
 const randomBtn = document.querySelector('#random-button')
 
+
 /*---------------- Event Listeners -------------------*/
 
 // clicks on categories and answers
@@ -118,6 +119,7 @@ function chooseCategory(evt){
    }, 100)
    category = evt.target.id;
    catButtons.setAttribute('hidden', true)
+   randomBtn.setAttribute('hidden', true)
    pullQuestions(category)
    renderQuiz()
 }
@@ -306,7 +308,6 @@ function renderTimer() {
 function lightDarkToggle(){
    body.className = body.className === "dark" ? "" : "dark"
    switchLabel.innerText = body.className === "dark" ?  "🔆" : "🌙"
-   
 }
 
 function checkDarkPref () {
@@ -318,6 +319,7 @@ function checkDarkPref () {
    }
 }
 
+// extra: random quiz
 function randomQuiz(evt){
    let rIdx = Math.floor(Math.random() * 6)
    console.log(rIdx);
@@ -334,9 +336,12 @@ function randomQuiz(evt){
 }
 
 function showLabel(evt){
+   cardBody.forEach(function(card){
+      console.log(card.firstElementChild)
+   })
    console.log(cardBody);
 }
 
 // extra: shuffle questions
-// extra: random quiz
+
 // extra: difficulties

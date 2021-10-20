@@ -29,9 +29,9 @@ html {
     margin: 0%;
     padding-bottom: 80px;
     --choices: rgb(233, 233, 233);
-    --catTag: rgba(20, 34, 34, 0.555);
+    --catTag: rgba(41, 41, 41, 0.404);
     --question: rgb(75, 219, 188);
-    /* --shadow: rgba(37, 35, 35, 0.342); */
+    --shadow: rgba(37, 35, 35, 0.342);
   }
 
   body.dark {
@@ -39,7 +39,7 @@ html {
     background: linear-gradient(78deg, rgba(18,33,40,1) 0%, rgba(19,15,45,1) 76%);
     --darkFont: rgb(255, 255, 255);
     --choices: rgb(92, 92, 92);
-    --catTag: rgba(123, 153, 153, 0.301);
+    --catTag: rgba(255, 255, 255, 0.096);
     --question: rgb(9, 67, 153);
     --shadow: rgba(82, 74, 74, 0.568);
     color: var(--darkFont)
@@ -60,6 +60,10 @@ html {
 
   main {
     font-size: 3.3rem;
+  }
+
+  #home {
+    margin: 0;
   }
 
   .buttons {
@@ -88,8 +92,7 @@ html {
   }
 
   .timer {
-    text-align: right;
-    margin-right: 10px;
+    margin: 0;
   }
 
   .correct {
