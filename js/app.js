@@ -35,6 +35,7 @@ const body = document.querySelector("body")
 const titleEl = document.querySelector("#title")
 const messageEl = document.querySelector("#message")
 const catButtons = document.querySelector("#category-cards")
+const cardBody = document.querySelectorAll(".card-body")
 const main = document.querySelector("main")
 const nextButton = document.getElementById("next-button")
 const homeNavBtn = document.getElementById("home")
@@ -61,6 +62,11 @@ resultsButton.addEventListener('click', renderResult)
 homeButton.addEventListener("click", init)
 
 // extra 1: hover over on categories and answers
+catButtons.addEventListener('mouseover', function(event){
+   event.preventDefault()
+   if (event.target.id !== "category-cards")
+      showLabel(event)
+   })
 
 // toggle: light and dark mode
 lightDark.addEventListener('click', lightDarkToggle)
@@ -304,6 +310,9 @@ function checkDarkPref () {
    }
 }
 
+// function showLabel(evt){
+//    console.log(evt.target.id);
+// }
 
 // extra: shuffle questions
 // extra: random quiz
