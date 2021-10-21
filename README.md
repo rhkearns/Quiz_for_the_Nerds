@@ -1,7 +1,7 @@
 Quiz for the Nerds
 
 This is a quiz to test your knowledge of the biggest nerdy franchises.
-Simply select a category, or "Try Your Luck" with a random quiz. Then just click start and try your best to answer correctly
+Simply select a category, or "Try Your Luck" with a random quiz. Then just click start and try your best to answer correctly. This quiz is designed to be difficult; I wanted to design a quiz that would challenge me. 
 
 Deployed link: https://quiz-for-the-nerds.netlify.app/
 
