@@ -16,7 +16,7 @@ const ddQuestions = [
    },
 
    {
-      "question" : "Which of the following is not a Metamagic option?",
+      "question" : "Which of the following is not a Metamagic option for Sorcerers?",
       "correctAns" : "Beguiling Spell",
       "multChoice" : ["Distant Spell", "Quickened Spell", "Twinned Spell", "Heightened Spell", "Beguiling Spell"]
    },
