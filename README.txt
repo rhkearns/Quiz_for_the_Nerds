@@ -5,7 +5,11 @@ This is a quiz to test your knowledge of the biggest nerdy franchises
 Deployed link: https://quiz-for-the-nerds.netlify.app/
 
 Screenshots:
-![Home Screen](./images/Quiz screenshot 1.png)
+![Home Screen](../images/Quiz_screenshot_1.png)
+![Home Screen Light Mode](../images/Quiz_screenshot_2.png)
+![Home Screen Results Screen](../images/Quiz_screenshot_3.png)
+![Home Screen Question Screen](../images/Quiz_screenshot_4.png)
+![Home Screen Quiz Start Screen](../images/Quiz_screenshot_5.png)
 
 
 Technologies Used: HTML, CSS, JavaScript

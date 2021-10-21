@@ -352,6 +352,8 @@ function randomQuiz(evt){
 function showLabel(evt){
    console.log('showLabel');
    evt.target.nextElementSibling.hidden = false
+   evt.target.nextElementSibling.classList.remove("animate__animated", "animate__slideOutUp")
+   console.log(evt.target.nextElementSibling.classList);
    evt.target.nextElementSibling.classList.add('animate__animated', "animate__slideInDown")
    console.log(evt.target.nextElementSibling.classList);
    console.log(evt.target.nextElementSibling.hidden);
@@ -363,6 +365,7 @@ function hideLabel(evt){
    evt.target.nextElementSibling.classList.remove("animate__animated", "animate__slideInDown")
    console.log(evt.target.nextElementSibling.classList);
    evt.target.nextElementSibling.classList.add("animate__animated", "animate__slideOutUp")
+   console.log(evt.target.nextElementSibling.classList);
    console.log(evt.target.nextElementSibling.hidden);
 }
 
