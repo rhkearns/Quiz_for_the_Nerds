@@ -84,7 +84,6 @@ html {
   .card-header {
     background: var(--question);
     border: 1px solid darkgrey;
-    color: var(--choices);
   } 
 
   .list-group-item {
