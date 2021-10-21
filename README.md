@@ -1,4 +1,4 @@
-#Title: Quiz for the Nerds
+Quiz for the Nerds
 
 This is a quiz to test your knowledge of the biggest nerdy franchises.
 Simply select a category, or "Try Your Luck" with a random quiz. Then just click start and try your best to answer correctly
@@ -9,11 +9,11 @@ Screenshots: <br>
 <img src="images/Quiz_screenshot_6.png">
 <img src="images/Quiz_screenshot_1.png">
 <img src="images/Quiz_screenshot_2.png">
-<img src="images/Quiz_screenshot_3.png">
-<img src="images/Quiz_screenshot_4.png">
 <img src="images/Quiz_screenshot_5.png">
+<img src="images/Quiz_screenshot_4.png">
 <img src="images/Quiz_screenshot_7.png">
 <img src="images/Quiz_screenshot_8.png">
+<img src="images/Quiz_screenshot_3.png">
 
 
 
