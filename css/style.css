@@ -30,7 +30,7 @@ html {
     padding-bottom: 80px;
     --choices: rgb(233, 233, 233);
     --catTag: rgba(41, 41, 41, 0.404);
-    --question: rgb(75, 219, 188);
+    --question: rgb(53, 161, 138);
     --shadow: rgba(37, 35, 35, 0.342);
   }
 
@@ -84,6 +84,7 @@ html {
   .card-header {
     background: var(--question);
     border: 1px solid darkgrey;
+    color: var(--choices);
   } 
 
   .list-group-item {
