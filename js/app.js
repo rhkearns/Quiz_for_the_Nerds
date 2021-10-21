@@ -360,13 +360,14 @@ function showLabel(evt){
 function hideLabel(evt){
    console.log('hideLabel');
    evt.target.nextElementSibling.hidden = true
-   evt.target.nextElementSibling.classList.remove("animate__slideOutUp")
+   evt.target.nextElementSibling.classList.remove("animate__animated", "animate__slideInDown")
    console.log(evt.target.nextElementSibling.classList);
-   evt.target.nextElementSibling.classList.add("animate__slideOutUp")
+   evt.target.nextElementSibling.classList.add("animate__animated", "animate__slideOutUp")
    console.log(evt.target.nextElementSibling.hidden);
 }
 
 
 // extra: shuffle questions
 
+// extra: difficulties
 // extra: difficulties
