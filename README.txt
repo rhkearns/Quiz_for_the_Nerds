@@ -12,7 +12,7 @@ Screenshots:
 ![Home Screen Quiz Start Screen](../images/Quiz_screenshot_5.png)
 
 
-Technologies Used: HTML, CSS, JavaScript
+Technologies Used: HTML, CSS, JavaScript, Bootstrap, Animate.css, Google Fonts
 
 Next Steps: Quiz difficulties (easy, medium, hard modes with new questions); additional categories
 
