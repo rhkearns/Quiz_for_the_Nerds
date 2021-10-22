@@ -110,7 +110,6 @@ function init (){
    }
    main.innerHTML = ""
    timerEl.innerText = ""
-   
 }
 
 // populate variables with values from data
@@ -140,21 +139,21 @@ function showQuestion() {
    titleEl.innerHTML = catTitle
    messageEl.innerText = ''
    main.innerHTML = `
-   <div class="qCard" style="width: 100%;">
-   <div class="card-header">
-      ${questionArray[idx].question} 
-   </div>
-      <ul class="list-group list-group-flush">
-      <li class="list-group-item" id="a">${questionArray[idx].multChoice[0]}</li>
-      <li class="list-group-item" id="b">${questionArray[idx].multChoice[1]}</li>
-      <li class="list-group-item" id="c">${questionArray[idx].multChoice[2]}</li>
-      <li class="list-group-item" id="d">${questionArray[idx].multChoice[3]}</li>
-      <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
-      </ul>
-   </div>
-   <div class="progress" style="height:30px">
-      <div class="progress-bar" role="progressbar" style="width: ${(idx+1) * 10}%" aria-valuenow="${idx * 10}" aria-valuemin="0" aria-valuemax="100">${idx+1}/10</div>
-   </div>`
+      <div class="qCard" style="width: 100%;">
+         <div class="card-header">
+            ${questionArray[idx].question} 
+         </div>
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="a">${questionArray[idx].multChoice[0]}</li>
+            <li class="list-group-item" id="b">${questionArray[idx].multChoice[1]}</li>
+            <li class="list-group-item" id="c">${questionArray[idx].multChoice[2]}</li>
+            <li class="list-group-item" id="d">${questionArray[idx].multChoice[3]}</li>
+            <li class="list-group-item" id="e">${questionArray[idx].multChoice[4]}</li>
+         </ul>
+      </div>
+      <div class="progress" style="height:30px">
+         <div class="progress-bar" role="progressbar" style="width: ${(idx+1) * 10}%" aria-valuenow="${idx * 10}" aria-valuemin="0" aria-valuemax="100">${idx+1}/10</div>
+      </div>`
    // create variable that stores the correct answer
    const multiChoiceItem = document.querySelectorAll(".list-group-item")
    multiChoiceItem.forEach(function(choice){
