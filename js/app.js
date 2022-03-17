@@ -89,6 +89,7 @@ checkDarkPref()
 
 function init (){
    homeButton.setAttribute('hidden', true)
+   nextButton.setAttribute('hidden', true)
    if (timerIntervalId) {
       clearInterval(timerIntervalId)
    }
